@@ -150,3 +150,20 @@ header{box-shadow:0 5px 17px rgba(59,35,22,.08)}
 .skill.is-visible .flow-arrow{opacity:1;transform:scaleX(1)}
 .skill.is-visible .flow-arrow:nth-of-type(4){transition-delay:.25s}
 @media(prefers-reduced-motion:reduce){.project-visual .screen,.dialog-scene .screen,.skill-flow .flow-arrow{transition:none;animation:none}.skill-flow .flow-arrow{opacity:1;transform:none}}
+
+/* Small cues for orientation and deliberate motion. */
+nav a{position:relative}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:-9px;height:2px;border-radius:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+nav a:hover::after,nav a:focus-visible::after,nav a[aria-current="location"]::after{transform:scaleX(1)}
+nav a[aria-current="location"]{color:var(--accent-dark)}
+.course-group[open] .course-list li{animation:chalkWrite .36s ease-out both}
+.course-group[open] .course-list li:nth-child(3n + 2){animation-delay:.055s}
+.course-group[open] .course-list li:nth-child(3n){animation-delay:.11s}
+@keyframes chalkWrite{from{opacity:.35;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:no-preference){
+  .card[data-project="capstone"]:focus-within .project-visual .screen{animation:phoneGlow 1.8s ease-in-out infinite alternate}
+  .card[data-project="laser-tag"]:focus-within .project-visual .screen{animation:monitorGlow 1.8s ease-in-out infinite alternate}
+  .card[data-project="game"]:focus-within .project-visual .screen::before{animation:characterStep .9s ease-in-out infinite alternate}
+}
+@media(prefers-reduced-motion:reduce){nav a::after{transition:none}.course-group[open] .course-list li{animation:none}}
+@media(max-width:640px){nav{padding-bottom:8px}nav a::after{bottom:-5px}}

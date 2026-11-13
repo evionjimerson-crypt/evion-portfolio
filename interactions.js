@@ -65,3 +65,33 @@ if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: re
   }, { threshold: 0.35 });
   document.querySelectorAll('#skills .skill').forEach(skill => observer.observe(skill));
 }
+
+const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
+const sectionNavigation = navLinks.map(link => ({
+  link,
+  section: document.querySelector(link.getAttribute('href'))
+})).filter(item => item.section);
+let navUpdatePending = false;
+
+function updateActiveNavigation() {
+  const threshold = Math.max(145, window.innerHeight * 0.28);
+  let activeLink = null;
+  sectionNavigation.forEach(({ link, section }) => {
+    if (section.getBoundingClientRect().top <= threshold) activeLink = link;
+  });
+  navLinks.forEach(link => {
+    if (link === activeLink) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
+  navUpdatePending = false;
+}
+
+function requestNavigationUpdate() {
+  if (navUpdatePending) return;
+  navUpdatePending = true;
+  requestAnimationFrame(updateActiveNavigation);
+}
+
+window.addEventListener('scroll', requestNavigationUpdate, { passive: true });
+window.addEventListener('resize', requestNavigationUpdate);
+updateActiveNavigation();
