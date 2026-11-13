@@ -1,6 +1,6 @@
 # Evion Jimerson portfolio
 
-Open `index.html` in a browser. The site is a static page with no build step or paid service. Keep `headshot.png` beside it.
+Open `index.html` in a browser. The site is a static page with no build step or paid service. Keep `headshot.png`, `depth.css`, `interactions.js`, and `Evion_Jimerson_Resume.pdf` beside it. The résumé reflects the portfolio's verified education, project descriptions, and coursework.
 
 ## Before publishing
 
