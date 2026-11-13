@@ -1,6 +1,6 @@
 # Evion Jimerson portfolio
 
-Open `index.html` in a browser. The site is a static page with no build step or paid service. Keep `headshot.png`, `depth.css`, `interactions.js`, and `Evion_Jimerson_Resume.pdf` beside it. The résumé reflects the portfolio's verified education, project descriptions, and coursework.
+Open `index.html` in a browser. It contains the complete CSS and JavaScript in one file. The portrait, favicon, fonts, and résumé use public URLs, so an internet connection is needed when viewing the file outside GitHub Pages. The résumé reflects the portfolio's education, project descriptions, and coursework.
 
 ## Before publishing
 
